@@ -1,0 +1,54 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.deploy
+.env.production
+backend/.env.production
+app/backend/.env.production
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local Netlify folder
+.netlify
+
+# Temporary files
+tmp/
+backend/tmp/
+
+# Sensitive files
+firebase_env_line.txt
+firebase_key.txt
+*.key
+*.pem
+*.enc
+telegram-session.enc
+app/backend/telegram-session.enc
+app/backend/storage/
+backend/storage/
+*.mp4
+*.mov
+*.avi

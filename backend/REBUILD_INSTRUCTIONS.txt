@@ -1,0 +1,44 @@
+ПЕРЕСБОРКА DOCKER КОНТЕЙНЕРА НА SYNOLOGY NAS
+============================================
+
+Выполните эти команды на сервере:
+
+1. Подключитесь к серверу:
+   ssh -p 777 admin@hotwell.synology.me
+
+2. Перейдите в директорию проекта:
+   cd /volume1/docker/shortsai/backend
+
+3. Остановите контейнер:
+   sudo /usr/local/bin/docker compose down
+
+4. Пересоберите контейнер:
+   sudo /usr/local/bin/docker compose build --no-cache
+
+5. Запустите контейнер:
+   sudo /usr/local/bin/docker compose up -d
+
+6. Проверьте статус:
+   sudo /usr/local/bin/docker compose ps
+
+7. Проверьте логи:
+   sudo /usr/local/bin/docker compose logs --tail=100
+
+============================================
+
+ИЛИ ВЫПОЛНИТЕ ОДНОЙ КОМАНДОЙ:
+
+ssh -p 777 admin@hotwell.synology.me "cd /volume1/docker/shortsai/backend && sudo /usr/local/bin/docker compose down && sudo /usr/local/bin/docker compose build --no-cache && sudo /usr/local/bin/docker compose up -d && sudo /usr/local/bin/docker compose ps"
+
+============================================
+
+ПОСЛЕ ПЕРЕСБОРКИ:
+
+- Автоматизация будет сохранять видео в storage/videos
+- Все этапы будут логироваться
+- Используется правильный STORAGE_ROOT из env переменных
+
+
+
+
+

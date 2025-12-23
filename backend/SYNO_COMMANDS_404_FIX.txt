@@ -1,0 +1,27 @@
+# Команды для выполнения в SSH сессии на Synology
+# Вы уже находитесь в /volume1/docker/shortsai
+
+# 1. Перейти в директорию backend
+cd /volume1/docker/shortsai/backend
+
+# 2. Проверить наличие docker-compose.yml
+ls -la docker-compose.yml
+
+# 3. Остановить контейнер
+sudo docker compose stop backend
+
+# 4. Пересобрать образ (займет несколько минут)
+sudo docker compose build --no-cache backend
+
+# 5. Запустить контейнер
+sudo docker compose up -d backend
+
+# 6. Подождать 10 секунд
+sleep 10
+
+# 7. Проверить логи
+sudo docker logs shorts-backend --tail 50 | grep -E "routes registered|listening|INCOMING"
+
+# 8. Тест endpoint
+curl -i -X POST https://api.shortsai.ru/api/telegram/fetchAndSaveToServer -H "Content-Type: application/json" -d '{"channelId":"test"}'
+
